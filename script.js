@@ -1,19 +1,20 @@
-function cardValidation() {
-    const cardNumber = document.querySelector('#number').value.replace(/\s/g, '');
-    const cardNumberField = document.querySelector('#number')
-    const cardNumberDisplay = document.querySelector('#cardNumberDisplay');
-    const cvc = document.querySelector('#cvc').value;
-    const cvcField = document.querySelector('#cvc');
-    const cvcDisplay = document.querySelector('#cvcDisplay');
-    const name = document.querySelector('#name').value;
-    const nameField = document.querySelector('#name');
-    const nameDisplay = document.querySelector('#nameDisplay');
-    const month = document.querySelector('#month').value;
-    const monthField = document.querySelector('#month');
-    const year = document.querySelector('#year').value;
-    const expiryDisplay = document.querySelector('#expiryDisplay');
-    const formContainer = document.querySelector(".form-container")
+const cardNumber = document.querySelector('#number').value.replace(/\s/g, '');
+const cardNumberField = document.querySelector('#number')
+const cardNumberDisplay = document.querySelector('#cardNumberDisplay');
+const cvc = document.querySelector('#cvc').value;
+const cvcField = document.querySelector('#cvc');
+const cvcDisplay = document.querySelector('#cvcDisplay');
+const name = document.querySelector('#name').value;
+const nameField = document.querySelector('#name');
+const nameDisplay = document.querySelector('#nameDisplay');
+const month = document.querySelector('#month').value;
+const monthField = document.querySelector('#month');
+const year = document.querySelector('#year').value;
+const yearField = document.querySelector('#year');
+const expiryDisplay = document.querySelector('#expiryDisplay');
+const formContainer = document.querySelector(".form-container")
 
+function cardValidation() {
     console.log('Card Number:', cardNumber);
 
     // Validate card number using Luhn algorithm
@@ -105,3 +106,20 @@ function cardValidation() {
     completeState.classList.remove('hidden');
     formContainer.classList.add('hidden')
 }
+
+//update text in real time
+cardNumberField.addEventListener('keyup', function () {
+    cardNumberDisplay.textContent = cardNumberField.value;
+});
+nameField.addEventListener('keyup', function () {
+    nameDisplay.textContent = nameField.value;
+});
+cvcField.addEventListener('keyup', function () {
+    cvcDisplay.textContent = cvcField.value;
+});
+monthField.addEventListener('keyup', function () {
+    expiryDisplay.textContent = monthField.value;
+});
+yearField.addEventListener('keyup', function () {
+    expiryDisplay.textContent = `${monthField.value}/${yearField.value}`;
+});
