@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <title>Frontend Mentor | Interactive card details form</title>
+</head>
+
+<body>
+  <div class="app">
+    <section>
+      <div class="mobile-flip-div">
+        <div class="image-container">
+          <div class="front-card">
+            <img src="images/bg-card-front.png" alt="front of credit card">
+            <img class="card-logo" src="images/card-logo.svg" alt="card logo">
+            <h1 id="cardNumberDisplay">0000 0000 0000 0000</h1>
+            <div class="name-and-expiry">
+              <h2 id="nameDisplay" class="name">Jane Appleseed</h2>
+              <h2 id="expiryDisplay" class="expiryDisplay">00/00</h2>
+            </div>
+          </div>
+
+          <div class="back-card">
+            <img src="images/bg-card-back.png" alt="back of credit card">
+            <h2 id="cvcDisplay" class="cvc">000</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="form-container">
+        <form>
+          <div class="card-name">
+            <label>Cardholder Name</label>
+            <input id="name" type="text" placeholder="e.g. Jane Appleseed" required>
+          </div>
+
+          <div class="card-number">
+            <label>Card Number</label>
+            <input id="number" type="text" placeholder="e.g. 1234 5678 9123 0000" required>
+          </div>
+
+          <div class="small-inputs">
+            <div class="expiry">
+              <label id="expiry-label">Exp. Date (MM/YY)</label>
+              <div class="expiry-inputs">
+                <input id="month" placeholder="MM" type="number" required>
+                <input id="year" placeholder="YY" type="number" required>
+              </div>
+            </div>
+
+            <div class="cvc-input-section">
+              <label>CVC</label>
+              <input id="cvc" type="number" placeholder="e.g. 123" required>
+            </div>
+          </div>
+        </form>
+
+        <button class="submit-btn" type="submit" onclick="cardValidation()">Confirm</button>
+      </div>
+    </section>
+
+
+    <!-- Completed state start -->
+    <section>
+      <div class="complete">
+        <div class="complete-state hidden">
+          <img src="images/icon-complete.svg" alt="completed tick">
+          <h3>Thank you!</h3>
+          <p>We've added your card details</p>
+          <button id="complete">Continue</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
